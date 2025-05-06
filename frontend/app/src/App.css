@@ -39,11 +39,12 @@
 
 .MapDiv{
   display: flex;
+  background: rgb(14, 17, 23);
 }
 
 .Graficos{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: left;
 }

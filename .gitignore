@@ -1,1 +1,7 @@
 prediction_model/*.pkl
+backend/__pycache__
+backend/blueprints/__pycache__
+backend/models/__pycache__
+backend/.env
+frontend/node_modules
+db

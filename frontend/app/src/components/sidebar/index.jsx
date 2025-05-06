@@ -18,19 +18,19 @@ export default function Sideba() {
     sidebarDiv.style.setProperty('transition', 'background-color 0.3s ease', 'important');
     sidebarDiv.style.setProperty(
         'background-color',
-        isDarkMode ? '#1a2238' : '#ffffff',
+        isDarkMode ? '#ffffff': '#0e1117 ',
         'important'
       );
     }
   }, [isDarkMode]);
-
+ {/*mudei a cor, esta era a anterior #1a2238'*/ }
   return (
     <>
     <div ref={sidebarRef}>
       <Sidebar
         style={{
             height: '100vh',
-            color: isDarkMode ? '#fff' : '#000',
+            color: isDarkMode ?  '#000': '#fff',
         }}
       >
         <div style={{ padding: '20px', textAlign: 'left', display: 'flex' }}>
@@ -53,15 +53,15 @@ export default function Sideba() {
             style={{
               width: '100%',
               padding: '10px',
-              backgroundColor: isDarkMode ? '#364fc7' : '#eee', // tom mais claro de azul
-              color: isDarkMode ? '#fff' : '#000',
+              backgroundColor: isDarkMode ? '#eee' : '#364fc7', // tom mais claro de azul
+              color: isDarkMode ? '#000' : '#fff',
               border: 'none',
               borderRadius: '5px',
               cursor: 'pointer',
               marginTop: "90vh"
             }}
           >
-            {isDarkMode ? <FaSun /> : <FaMoon />} {isDarkMode ? 'Modo Claro' : 'Modo Escuro'}
+            {isDarkMode ?  <FaMoon />:<FaSun /> } {isDarkMode ?  'Modo Escuro': 'Modo Claro'}
           </button>
         </div>
       </Sidebar>
