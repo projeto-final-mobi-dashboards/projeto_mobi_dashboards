@@ -1,7 +1,7 @@
-> Sobre:
+> #### Sobre:
 > Projeto contendo frontend feito com react, backend com flask e SQL_ALCHEMY para acessar o banco de dados mysql
  
-> Objetivo:
+> #### Objetivo:
 > Análise de dados do aplicativo MOBI, criação de dashboards para visualização e retirada de insights
 > Com opção de filtragem dos dados, exportação dos gráficos e figuras, atualização em tempo real após alterações no banco de dados 
 > Login e cadastro para controle de quem acessou a aplicação
