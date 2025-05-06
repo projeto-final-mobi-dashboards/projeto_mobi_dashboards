@@ -61,8 +61,8 @@
 - pip3 install streamlit
 
 ## Contato:
-Miguel:[github.com/MiguelDaSilvaGomes]
-Gustavo:[github.com/GustavoProcopio27]
+#### Miguel:[github.com/MiguelDaSilvaGomes]
+#### Gustavo:[github.com/GustavoProcopio27]
 
 
 
