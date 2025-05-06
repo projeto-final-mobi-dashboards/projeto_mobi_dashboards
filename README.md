@@ -19,6 +19,7 @@
 - pip install requests
 - pip install flask -U flask_sqlalchemy
 - pip install flask
+- pip install SQLAlchemy
 
 ### Carregar url do banco de dados e o modelo de previsão
 
@@ -49,6 +50,7 @@
 - pip3 install flask -U flask_sqlalchemy
 - pip3 install flask
 - pip3 install requests
+- pip3 install SQLAlchemy 
 
 ### Carregar url do banco de dados e o modelo de previsão
 
