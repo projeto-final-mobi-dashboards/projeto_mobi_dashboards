@@ -91,6 +91,6 @@ df_curso=df_curso.loc[df_curso['curso'].isin(filter)]
 
 
 with col2:
-    bars=px.bar(df_curso,x='curso', y='quantidade', color='quantidade',color_continuous_scale=px.colors.sequential.OrRd)
+    bars=px.bar(df_curso,x='curso', y='quantidade', orientation='h' ,color='quantidade',color_continuous_scale=px.colors.sequential.OrRd)
     bars.update_layout(xaxis_title="cursos do cefet" , yaxis_title="quantidade de alunos",width=10,height=200, margin=dict(r=0,l=0,b=0,t=0))
     st.plotly_chart(bars, use_container_width=True)
