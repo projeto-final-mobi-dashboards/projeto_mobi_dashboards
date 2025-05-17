@@ -15,7 +15,8 @@
     "react-plotly.js": "^2.6.0",
     "react-pro-sidebar": "^1.1.0",
     "react-scripts": "^5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack-dev-server": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^5.99.8"
   }
 }

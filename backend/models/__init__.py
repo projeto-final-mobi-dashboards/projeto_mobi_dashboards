@@ -16,10 +16,9 @@ from os import getenv
 
 
 
-
-load_dotenv(dotenv_path='backend/.env')
-
-database_url=getenv('DATABASE_URL')
+#load_dotenv(dotenv_path='.env')
+#print(getenv('DATABASE_URL'))
+database_url='mysql+pymysql://admin:admin@localhost:3306/projeto'
 engine=create_engine(database_url)
 
 conexao=engine.connect()

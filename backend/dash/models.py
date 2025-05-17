@@ -1,10 +1,10 @@
 from sqlalchemy import create_engine
-from dotenv import load_dotenv
-from os import getenv
+#from dotenv import load_dotenv
+#from os import getenv
 
-load_dotenv(dotenv_path='backend/.env')
+#load_dotenv(dotenv_path='backend/.env')
 
-database_url=getenv('DATABASE_URL')
+database_url='mysql+pymysql://admin:admin@localhost:3306/projeto'
 engine=create_engine(database_url)
 
 

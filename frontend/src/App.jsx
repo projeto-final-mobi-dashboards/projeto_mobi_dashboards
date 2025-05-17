@@ -5,6 +5,7 @@ import PlotPie from "./components/endereco.jsx";
 import PlotBar from "./components/curso.jsx";
 import PlotGenderBar from "./components/genero.jsx";
 import PlotIndicator from "./components/transport.jsx"
+import Login from "./components/Login"
 
 import Sideba from "./components/sidebar/index.jsx"
 import './App.css';
@@ -48,32 +49,8 @@ function App() {
   // ,[Refresh])  
 
   return (
-    <div className="MapDiv">
-        <Sideba/>
-
-
-    <div className='Graficos'>
-      <div>
-      	<PlotIndicator/>
-      </div>
-
-      <div>
-        <PlotGenderBar/>
-      </div>
-
-      <div>
-            <PlotPie/>
-      </div>
-
-      <div>
-        <PlotMap/>
-      </div>
-
-      <div>
-        <PlotBar/>
-      </div>
-    </div>
-
+    <div >
+        <Login/>
     </div>
   );
 }

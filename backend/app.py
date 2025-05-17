@@ -13,7 +13,7 @@ def create_app():
     app=Flask(__name__)
 
     #configurações da aplicação
-    app.config['SQLALCHEMY_DATABASE_URI']=database_url
+    app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:admin@localhost:3306/projeto'
     app.config['SESSION_TYPE'] = 'sqlalchemy'
     app.config['SESSION_SQLALCHEMY'] = engine
 

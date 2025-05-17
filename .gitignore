@@ -1,13 +1,11 @@
 prediction_model/*.pkl
-prediction_model/.env
 
 backend/__pycache__
 backend/blueprints/__pycache__
 backend/models/__pycache__
-backend/.env
 backend/.venv/
 
 frontend/node_modules/
-backend/blueprints/dash/.env
 
-db
+
+
