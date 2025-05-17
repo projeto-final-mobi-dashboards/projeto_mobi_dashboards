@@ -1,20 +1,47 @@
 # Um arquivo __init__.py contem codigo que será executado quando ocorrer importações do modulo do pacote
-from flask_sqlalchemy import SQLAlchemy
+
+#sql alchemy
+from sqlalchemy import create_engine,Column,Integer,String,Double,ForeignKey
+from sqlalchemy.orm import declarative_base 
 from sqlalchemy.dialects.mysql import BIT
 
-db=SQLAlchemy()
+# outras coisas
+from flask_bcrypt import Bcrypt
+from flask_cors import CORS
+from flask_session import Session as flaskSession
+# pegar a url da database
+from dotenv import load_dotenv
+from os import getenv
 
-class Enderecos(db.Model):
+
+
+
+
+load_dotenv(dotenv_path='backend/.env')
+
+database_url=getenv('DATABASE_URL')
+engine=create_engine(database_url)
+
+conexao=engine.connect()
+Base=declarative_base()
+
+
+session=flaskSession()
+bcrypt = Bcrypt()
+cors=CORS()
+
+
+class Enderecos(Base):
     __tablename__='enderecos'
 
-    usuario_id =db.Column(db.Integer, db.ForeignKey('usuarios.id'), primary_key = True)
-    bairro = db.Column(db.String(50), nullable=False)
-    cep = db.Column(db.String(50), nullable=False)
-    cidade = db.Column(db.String(100), nullable=False)
-    numero = db.Column(db.String(100), nullable=False)
-    rua = db.Column(db.String(100), nullable=False)
+    usuario_id =Column(Integer, ForeignKey('usuarios.id'), primary_key = True)
+    bairro = Column(String(50), nullable=False)
+    cep = Column(String(50), nullable=False)
+    cidade = Column(String(100), nullable=False)
+    numero = Column(String(100), nullable=False)
+    rua = Column(String(100), nullable=False)
 
-    #usuario = db.relationship('enderecos', backref=db.backref('usuarios'), lazy='joined')
+    #usuario = relationship('enderecos', backref=backref('usuarios'), lazy='joined')
 
     def __repr__(self):
         return f'cep: {self.cep} , cidade: {self.cidade}, bairro: {self.bairro}, rua: {self.rua}'
@@ -22,57 +49,72 @@ class Enderecos(db.Model):
 
 
 
-class Usuarios(db.Model):
+class Usuarios(Base):
     __tablename__ = 'usuarios'
 
-    id = db.Column(db.Integer, primary_key = True)
-    cargo = db.Column(db.String(50), nullable = False ) 
-    cpf = db.Column(db.String(50), nullable = False ) 
-    email_instituicional = db.Column(db.String(100), nullable = False) 
-    matricula = db.Column(db.String(20), nullable = False) 
-    nome = db.Column(db.String(100), nullable = False ) 
-    senha = db.Column(db.String(256), nullable = False ) 
-    termos = db.Column(BIT(1), nullable = False ) 
+    id = Column(Integer, primary_key = True)
+    cargo = Column(String(50), nullable = False ) 
+    cpf = Column(String(50), nullable = False ) 
+    email_institucional = Column(String(100), nullable = False) 
+    matricula = Column(String(20), nullable = False) 
+    nome = Column(String(100), nullable = False ) 
+    senha = Column(String(256), nullable = False ) 
+    termos = Column(BIT(1), nullable = False ) 
 
     def __repr__(self):
         return f'Cargo: {self.cargo}, CPF : {self.cpf}, Email : {self.email_instituicional} '
    
 
-class Itinerario(db.Model):
-    __tablename__='itinerarios' 
+class Itinerario(Base):
+    __tablename__='itinerario' 
 
-    id = db.Column(db.Integer, primary_key = True) 
-    data = db.Column(db.String(255), nullable = False ) 
-    nome = db.Column(db.String(255), nullable = False )
-    usuario_id = db.Column(db.Integer,db.ForeignKey('usuarios.id'), nullable = False)  
+    id = Column(Integer, primary_key = True) 
+    data = Column(String(255), nullable = False ) 
+    nome = Column(String(255), nullable = False )
+    usuario_id = Column(Integer,ForeignKey('usuarios.id'), nullable = False)  
 
-    #usuario = db.relationship('usuarios', backref=db.backref('itinerarios'), lazy='joined')
+    #usuario = relationship('usuarios', backref=backref('itinerarios'), lazy='joined')
 
     def __repr__(self):
         return f'data: {self.data}, nome : {self.nome},'
 
 
 
-class Trecho(db.Model):
+class Trecho(Base):
     __tablename__='trecho'
 
-    id = db.Column(db.Integer, primary_key = True)
-    bairro = db.Column(db.String(200) , nullable=False )
-    cidade = db.Column(db.String(200), nullable = False ) 
-    complemento = db.Column(db.String(200),nullable=True)
-    hora = db.Column(db.String(200), nullable = False ) 
-    latitude = db.Column(db.Double, nullable = False ) 
-    local = db.Column(db.String(200), nullable = False ) 
-    longitude = db.Column(db.Double, nullable = False ) 
-    meio_transporte = db.Column(db.String(200), nullable = False ) 
-    numero = db.Column(db.String(200), nullable = False ) 
-    rua = db.Column(db.String(200), nullable = False ) 
-    tipo_trajeto = db.Column(db.String(255), nullable = False ) 
-    itinerario_id = db.Column(db.Integer,db.ForeignKey('Itinerario.id')) 
+    id = Column(Integer, primary_key = True)
+    bairro = Column(String(200) , nullable=False )
+    cidade = Column(String(200), nullable = False ) 
+    complemento = Column(String(200),nullable=True)
+    hora = Column(String(200), nullable = False ) 
+    latitude = Column(Double, nullable = False ) 
+    local = Column(String(200), nullable = False ) 
+    longitude = Column(Double, nullable = False ) 
+    meio_transporte = Column(String(200), nullable = False ) 
+    numero = Column(String(200), nullable = False ) 
+    rua = Column(String(200), nullable = False ) 
+    tipo_trajeto = Column(String(255), nullable = False ) 
+    itinerario_id = Column(Integer,ForeignKey('Itinerario.id')) 
 
-    #itinerario = db.relationship('itinerarios', backref=db.backref('trecho'), lazy='joined')
+    #itinerario = relationship('itinerarios', backref=backref('trecho'), lazy='joined')
 
     def __repr__(self):
         return f' latitude : {self.latitude}, longitude: {self.longitude}, cidade: {self.cidade}'
 
+class Administrador(Base):
+    __tablename__='administradores'
+
+    id = Column(Integer, nullable=False,primary_key= True)
+    nome = Column(String(100), nullable=False)
+    email_institucional = Column(String(100), nullable=False)
+    senha = Column(String(255), nullable=False)
+    matricula = Column(String(20), nullable=False)
+    telefone = Column(String(30), nullable=False)
+    termos = Column(BIT(1), nullable = False ) 
+    Masterstatus = Column(BIT(1), nullable = False ) 
+
+    def __repr__(self):
+        return f' nome : {self.email}, matricula: {self.matricula}, telefone: {self.telefone}'
+    
 

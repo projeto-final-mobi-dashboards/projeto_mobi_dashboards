@@ -5,5 +5,9 @@ backend/__pycache__
 backend/blueprints/__pycache__
 backend/models/__pycache__
 backend/.env
-frontend/node_modules
+backend/.venv/
+
+frontend/node_modules/
+backend/blueprints/dash/.env
+
 db

@@ -1,0 +1,25 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Dependencias diretas, nem todas estão sendo utilizadas, mas eu botei quase tudo que acho que irei utilizar até o fim disso"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dotenv>=0.9.9",
+    "flask>=3.1.1",
+    "flask-bcrypt>=1.0.1",
+    "flask-caching>=2.3.1",
+    "flask-cors>=5.0.1",
+    "flask-session>=0.8.0",
+    "joblib>=1.5.0",
+    "numpy>=2.2.5",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.3",
+    "plotly>=6.1.0",
+    "pymysql>=1.1.1",
+    "requests>=2.32.3",
+    "scikit-learn>=1.6.1",
+    "sqlalchemy>=2.0.41",
+    "streamlit>=1.45.1",
+    "unidecode>=1.4.0",
+]
