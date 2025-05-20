@@ -1,8 +1,10 @@
 import React from 'react';
 import "../css/login.css";
+import { Link } from 'react-router-dom';
 export default function Login()
 {
     return(   
+      <div className='Login'>
         <div className="form-container">
         <p className="title">Login</p>
         <form className="form">
@@ -19,9 +21,12 @@ export default function Login()
               </a>
             </div>
           </div>
-          <button type="submit" className="sign">
-            Sign in
-          </button>
+          <Link to="/Home">
+            <button type="submit" className="sign">
+              Sign in
+            </button>
+          </Link>
+
         </form>
   
         <div className="social-message">
@@ -52,13 +57,7 @@ export default function Login()
             </svg>
           </button>
         </div>
-  
-        <p className="signup">
-          Don't have an account?
-          <a rel="noopener noreferrer" href="#" className="">
-            {" "}Sign up
-          </a>
-        </p>
+      </div>
       </div>
     );
 }
