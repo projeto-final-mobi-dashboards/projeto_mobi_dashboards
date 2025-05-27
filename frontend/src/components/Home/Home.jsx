@@ -10,8 +10,14 @@ import "./Home.css";
 export const Home = ()=>{
     return(
     <div className="MapDiv">
+        <div className="Side">
         <Sideba/>
-        <PlotMap />
+        </div>
+        <PlotMap/>
+        <PlotPie/>
+        <PlotBar/>
+        <PlotGenderBar/>
+        <PlotIndicator/>
 
     </div>
     )

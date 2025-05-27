@@ -5,13 +5,13 @@
     padding: 2rem;
     color: rgba(243, 244, 246, 1);
   }
-  body{
+  /*body{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     width: 100vw;
     height: 100vh;
     align-items: center;
-  }
+  }*/
   .title {
     text-align: center;
     font-size: 1.5rem;
@@ -125,5 +125,13 @@
     font-size: 0.75rem;
     line-height: 1rem;
     color: rgba(156, 163, 175, 1);
+  }
+
+  .Login{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
   }
   

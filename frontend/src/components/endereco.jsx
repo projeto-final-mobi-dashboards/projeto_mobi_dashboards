@@ -17,7 +17,7 @@ export default function PlotPie()
     }
     return(   
             <div>
-              <iframe src={url} title="gráfico de usuários por bairro/cidade" width='400' height='400'></iframe>
+              <iframe src={url} title="gráfico de usuários por bairro/cidade" width='400' height='324'></iframe>
             </div>
           ) 
 

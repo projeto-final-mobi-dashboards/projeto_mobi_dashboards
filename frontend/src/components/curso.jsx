@@ -16,7 +16,7 @@ export default function PlotBar()
     }
     return(   
             <div>
-              <iframe src={url} title="Gráfico de usuários por curso" width='1200' height='300'></iframe>
+              <iframe src={url} title="Gráfico de usuários por curso" width='900' height='300'></iframe>
             </div>
           ) 
 

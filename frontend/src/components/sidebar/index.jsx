@@ -26,7 +26,7 @@ export default function Sideba() {
  {/*mudei a cor, esta era a anterior #1a2238'*/ }
   return (
     <>
-    <div ref={sidebarRef}>
+    <div ref={sidebarRef} >
       <Sidebar
         style={{
             height: '100vh',

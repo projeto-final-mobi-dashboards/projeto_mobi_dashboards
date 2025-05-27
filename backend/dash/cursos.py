@@ -4,7 +4,7 @@ import streamlit as st
 from models import engine
 
 
-st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(layout="wide")
 st.markdown(""" 
             <style>
 
@@ -61,7 +61,7 @@ st.markdown("""
         }
         """, unsafe_allow_html=True)
 
-col1, col2 = st.columns([1,1])
+#col1, col2 = st.columns([1,1])
 
 df=pd.read_sql('select * from usuarios', engine)
 
@@ -87,12 +87,12 @@ df_curso=df.groupby(by=['curso'])['cargo'].value_counts().reset_index()
 df_curso.columns=["curso","cargo","quantidade"]
 
 #print(df_curso)
-with col1:
-    filter=st.multiselect("selecione um curso para filtrar",options=list(df_curso['curso']), default=['Informática','Enfermagem','Automação industrial','Telecomunicação'])
+#with col1:
+#    filter=st.multiselect("selecione um curso para filtrar",options=list(df_curso['curso']), default=['Informática','Enfermagem','Automação industrial','Telecomunicação'])
 
-df_curso=df_curso.loc[df_curso['curso'].isin(filter)]
+#df_curso=df_curso.loc[df_curso['curso'].isin(filter)]
 
-with col2:
-    bars=px.bar(df_curso,x='curso', y='quantidade', color='quantidade',color_continuous_scale=px.colors.sequential.BuPu)
-    bars.update_layout(xaxis_title="cursos do cefet" , yaxis_title="quantidade de alunos",width=10,height=200, margin=dict(r=0,l=0,b=0,t=0))
-    st.plotly_chart(bars, use_container_width=True)
+#with col2:
+bars=px.bar(df_curso,x='curso', y='quantidade', color='quantidade', color_continuous_scale=px.colors.sequential.BuPu)
+bars.update_layout(xaxis_title="cursos do cefet" , yaxis_title="quantidade de alunos",width=10,height=200, margin=dict(r=0,l=0,b=0,t=0))
+st.plotly_chart(bars, use_container_width=True)

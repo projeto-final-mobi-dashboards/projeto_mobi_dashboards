@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Rotas from "./components/Routes/rotas.js";
 
-import './App.css';
+
 
 function App() {
 
